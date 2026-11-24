@@ -1,8 +1,8 @@
 # A5
 ## Authors
-Names: [student names here]
+Names: Haoxuan Li
 
-Emails: [student emails here]
+Emails: Haoxul12@uci.edu
 
 Note: the README template uses the word "app" to mean the "website" OR "mobile app" you build for this project.
 
