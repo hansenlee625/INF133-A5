@@ -1,0 +1,7 @@
+{
+  "name": "SpendingTracker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
