@@ -2,19 +2,19 @@ import { Transaction } from "./transaction";
 
 export class Spending extends Transaction{
     private _transactionLocation:string;
-    private _forWhom:string;
+    private _beneficiary:string;
 
-	constructor(date:Date, amount:number, note:string, location:string, forWhom:string){
+	constructor(date:Date, amount:number, note:string, location:string, beneficiary:string){
 		super(date, amount, note);
 		this._transactionLocation=location;
-		this._forWhom = forWhom;
+		this._beneficiary = beneficiary;
 	}
 
 	override summaryString():string{
-        var baseSummary:string = `Spending on ${this.transactionDate} ` +
-         `at ${this.dateString()} ` +
+        const baseSummary:string = `Spending on ${this.dateString()} ` +
+         `at ${this._transactionLocation} ` +
          `with amount $${this.transactionAmount.toFixed(2)}, ` +
-         `this spending was for ${this._forWhom}.`;
+         `this spending was for ${this._beneficiary}.`;
         
         return this.selfNote ? `${baseSummary} Note: ${this.selfNote}` : baseSummary;
 	}
@@ -23,5 +23,5 @@ export class Spending extends Transaction{
 
     get transactionLocation():string{return this._transactionLocation;}
 
-    get forWhom():string{return this._forWhom;}
+    get beneficiary():string{return this._beneficiary;}
 }

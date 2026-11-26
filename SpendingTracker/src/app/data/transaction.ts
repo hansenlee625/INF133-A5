@@ -19,7 +19,7 @@ export class Transaction{
 	}
 
 	dateString():string{
-		return this.transactionDate.toLocaleDateString("en-US", {weekday: "long", month: "long", day: "numeric"});
+		return this.transactionDate.toLocaleDateString("en-US", {weekday: "long", month: "long", day: "numeric", year: "numeric"});
 	}
 
     get id():string{return this._id;}

@@ -9,7 +9,7 @@ export class Earning extends Transaction{
 	}
 
 	override summaryString():string{
-        var baseSummary:string = `Earning on ${this.dateString()} ` +
+        const baseSummary:string = `Earning on ${this.dateString()} ` +
          `from ${this._earningSource} ` +
          `with amount $${this.transactionAmount.toFixed(2)}.`;
         
