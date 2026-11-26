@@ -1,0 +1,19 @@
+:host{
+  display: block;
+  flex-shrink: 0;
+}
+
+.bottom-nav{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bottom-nav ion-button{
+  flex: 1;
+  --color: var(--ion-text-color);
+}
+
+.bottom-nav ion-button.active{
+  --color: var(--ion-background-color, #fff);
+  --background: var(--ion-text-color, #000);
+}

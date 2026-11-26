@@ -1,1 +1,19 @@
-<p>bottom-nav works!</p>
+<ion-footer>
+  <ion-toolbar>
+    <nav class="bottom-nav">
+      <ion-button
+        routerLink="/home"
+        [class.active]="currentView === 'log'"
+        [fill]="currentView === 'log' ? 'solid' : 'clear'">
+        Record Transaction
+      </ion-button>
+
+      <ion-button
+        routerLink="/view-transactions"
+        [class.active]="currentView === 'view'"
+        [fill]="currentView === 'view' ? 'solid' : 'clear'">
+        View All Transaction
+      </ion-button>
+    </nav>
+  </ion-toolbar>
+</ion-footer>
