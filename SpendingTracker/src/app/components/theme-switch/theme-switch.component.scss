@@ -1,0 +1,20 @@
+:host{
+  display: block;
+  margin-inline-end: 12px;
+}
+
+.theme-switch{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-switch ion-icon{
+  font-size: 22px;
+  color: var(--ion-color-medium);
+}
+
+.theme-switch ion-toggle{
+  --track-background: var(--ion-color-step-300);
+  --track-background-checked: var(--ion-color-primary);
+}

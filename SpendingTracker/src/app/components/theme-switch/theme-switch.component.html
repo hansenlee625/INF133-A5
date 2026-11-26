@@ -1,1 +1,11 @@
-<p>theme-switch works!</p>
+<div class="theme-switch">
+  <ion-icon name="sunny-outline"></ion-icon>
+
+  <ion-toggle
+    [checked]="isDark"
+    (ionChange)="setDarkMode($event.detail.checked)"
+    aria-label="Enable dark mode">
+  </ion-toggle>
+
+  <ion-icon name="moon-outline"></ion-icon>
+</div>
