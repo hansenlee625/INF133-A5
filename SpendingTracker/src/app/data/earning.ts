@@ -1,10 +1,11 @@
 import { Transaction } from "./transaction";
+import Decimal from 'decimal.js';
 
 export class Earning extends Transaction{
     private _earningSource:string;
 
-    constructor(date:Date, amount:number, note:string, source:string){
-		super(date, amount, note);
+    constructor(date:Date, amount:Decimal, note:string, source:string, id?:string){
+		super(date, amount, note, id);
         this._earningSource = source;
 	}
 
@@ -19,4 +20,15 @@ export class Earning extends Transaction{
     override get type(): "earning" {return "earning";}
 
     get earningSource():string{return this._earningSource;}
+
+    toJSON(){
+        return{
+            id: this.id,
+            type: this.type,
+            date: this.transactionDate.toISOString(),
+            amount: this.transactionAmount.toString(),
+            source: this._earningSource,
+            note: this.selfNote
+        };
+    }
 }
