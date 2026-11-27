@@ -3,12 +3,12 @@ import Decimal from 'decimal.js';
 
 export class Spending extends Transaction{
     private _transactionLocation:string;
-    private _beneficiary:string;
+    private _beneficiary:string = "Self";
 
 	constructor(date:Date, amount:Decimal, location:string, beneficiary:string = "", note:string = "", id?:string){
 		super(date, amount, note, id);
 		this._transactionLocation= location;
-		this._beneficiary = beneficiary;
+		this._beneficiary = beneficiary.trim() || "Self";
 	}
 
 	override summaryString():string{

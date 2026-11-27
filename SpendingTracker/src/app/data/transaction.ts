@@ -11,7 +11,7 @@ export abstract class Transaction{
 		this._id = id;
 		this._transactionDate = new Date(date.getTime());
         this._transactionAmount = new Decimal(amount);
-        this._selfNote = note;
+        this._selfNote = note.trim();
 	}
 
 	abstract summaryString():string;

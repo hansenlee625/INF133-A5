@@ -6,7 +6,7 @@ export class Earning extends Transaction{
 
     constructor(date:Date, amount:Decimal, source:string = "", note:string = "", id?:string){
 		super(date, amount, note, id);
-        this._earningSource = source;
+        this._earningSource = source.trim() || "";
 	}
 
 	override summaryString():string{
