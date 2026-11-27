@@ -3,7 +3,7 @@ import Decimal from 'decimal.js';
 
 export class Spending extends Transaction{
     private _transactionLocation:string;
-    private _beneficiary:string = "Self";
+    private _beneficiary:string;
 
 	constructor(date:Date, amount:Decimal, location:string, beneficiary:string = "", note:string = "", id?:string){
 		super(date, amount, note, id);
