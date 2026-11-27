@@ -7,7 +7,7 @@ export abstract class Transaction{
     private _transactionAmount:Decimal;
     private _selfNote:string;
 
-	constructor(date:Date, amount:Decimal, note:string, id:string = nanoid()){
+	constructor(date:Date, amount:Decimal, note:string = "", id:string = nanoid()){
 		this._id = id;
 		this._transactionDate = new Date(date.getTime());
         this._transactionAmount = new Decimal(amount);

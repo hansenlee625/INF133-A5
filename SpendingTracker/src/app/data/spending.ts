@@ -5,9 +5,9 @@ export class Spending extends Transaction{
     private _transactionLocation:string;
     private _beneficiary:string;
 
-	constructor(date:Date, amount:Decimal, note:string, location:string, beneficiary:string, id?:string){
+	constructor(date:Date, amount:Decimal, location:string, beneficiary:string = "", note:string = "", id?:string){
 		super(date, amount, note, id);
-		this._transactionLocation=location;
+		this._transactionLocation= location;
 		this._beneficiary = beneficiary;
 	}
 

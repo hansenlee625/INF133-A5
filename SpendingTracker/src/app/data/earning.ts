@@ -4,7 +4,7 @@ import Decimal from 'decimal.js';
 export class Earning extends Transaction{
     private _earningSource:string;
 
-    constructor(date:Date, amount:Decimal, note:string, source:string, id?:string){
+    constructor(date:Date, amount:Decimal, source:string = "", note:string = "", id?:string){
 		super(date, amount, note, id);
         this._earningSource = source;
 	}
