@@ -1,4 +1,4 @@
-import { Service } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import { Spending } from '../data/spending';
 import { Earning } from '../data/earning';
@@ -27,7 +27,7 @@ export interface TransactionRecords{
   earning: Earning[];
 }
 
-@Service()
+@Injectable({providedIn: 'root'})
 export class TransactionStorage {
     private readonly storageKey = 'spending-tracker-data';
     private readonly _storage:Promise<Storage>;

@@ -1,17 +1,17 @@
-import { Service } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { TransactionRecords, TransactionStorage } from './transaction-storage';
 import { Transaction } from '../data/transaction';
 import { Spending } from '../data/spending';
 import { Earning } from '../data/earning';
 
-@Service()
+@Injectable({providedIn: 'root'})
 export class Transactions {
 	public static AllTransactions:Transaction[] = [];
 	public static AllSpending:Spending[] = [];
 	public static AllEarning:Earning[] = [];
 
-  public loading = true;
-  public loadError: string | null = null;
+  public loading = signal(true);
+  public loadError = signal<string | null>(null);
 
   private readonly _storage:Promise<void>;
   private queue:Promise<void> = Promise.resolve();
@@ -25,11 +25,12 @@ export class Transactions {
       const records = await this.transactionStorage.load();
       this.setArrays(records);
     }
-    catch{
-      this.loadError = "Could not load saved data. Changes disabled.";
+    catch(error){
+      console.error('Could not load transaction data:', error);
+      this.loadError.set('Could not load saved data. Changes disabled.');
     }
     finally{
-      this.loading = false;
+      this.loading.set(false);
     }
   }
 
@@ -45,7 +46,8 @@ export class Transactions {
   private changeRecords(change:(entries:TransactionRecords) => void):Promise<void>{
     const operation = this.queue.then(async () => {
       await this._storage;
-      if(this.loadError) throw new Error(this.loadError);
+      const loadError = this.loadError();
+      if(loadError) throw new Error(loadError);
       
       const records:TransactionRecords = {
         spending:Transactions.AllSpending.slice(),
